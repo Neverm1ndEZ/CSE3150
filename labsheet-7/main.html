@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registration Form Validation</title>
+		<script src="form_validator.js" defer></script>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #e4f0f8;
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			form {
+				max-width: 400px;
+				margin: 20px auto;
+				background-color: #fff;
+				padding: 20px;
+				border-radius: 8px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+
+			label {
+				display: block;
+				margin-bottom: 8px;
+			}
+
+			input[type="text"],
+			input[type="password"],
+			textarea,
+			input[type="number"] {
+				width: calc(100% - 20px);
+				padding: 10px;
+				margin-bottom: 15px;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
+
+			input[type="radio"] {
+				margin-right: 10px;
+			}
+
+			button {
+				background-color: #4caf50;
+				color: white;
+				padding: 10px 20px;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				font-size: 16px;
+			}
+
+			button:hover {
+				background-color: #45a049;
+			}
+		</style>
+	</head>
+	<body>
+		<center>
+			<h1 style="color: blue; font-size: 36px; font-family: Arial">
+				Registration Form PRESIDENCHY UNIVERSITY
+			</h1>
+		</center>
+
+		<form onsubmit="return formValidator()" action="right.html">
+			<fieldset>
+				<label for="firstname"
+					>First Name (Minimum 6 characters)<font color="red">*</font></label
+				>
+				<input type="text" id="firstname" value="Mihir" /><br />
+
+				<label for="lastname">Last Name<font color="red">*</font></label>
+				<input type="text" id="lastname" /><br />
+
+				<label for="email">Email Address<font color="red">*</font></label>
+				<input type="text" id="email" value="mihirsuman1@gmail.com" /><br />
+
+				<label for="pass"
+					>Password (minimum 6 characters)<font color="red">*</font></label
+				>
+				<input type="password" id="pass" /><br />
+
+				<label for="addr">Address<font color="red">*</font></label>
+				<textarea rows="2" cols="20" id="addr"></textarea><br />
+
+				<label for="mobileno">Mobile No<font color="red">*</font></label>
+				<input type="number" id="mobileno" /><br />
+
+				<label>Gender:</label>
+				<input type="radio" name="gender" />Male
+				<input type="radio" name="gender" />Female<br /><br />
+
+				<button type="submit">Submit</button>
+				<button type="reset">Reset</button>
+			</fieldset>
+		</form>
+	</body>
+</html>

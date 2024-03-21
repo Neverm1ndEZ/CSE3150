@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Canvas</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body
+		class="flex flex-col justify-center items-center h-screen gap-10 bg-gradient-to-r from-violet-200 to-pink-200"
+	>
+		<header class="">
+			<h1 class="text-4xl font-bold text-red-500">Canvas Example</h1>
+			<p class="text-2xl font-semibold text-blue-500">
+				Draw on the canvas by clicking and dragging the mouse
+			</p>
+		</header>
+		<article class="">
+			<h2 class="m-6 text-xl">Canvas</h2>
+			<canvas
+				class="border-2 border-black rounded-xl"
+				id="myCanvas"
+				width="1200"
+				height="600"
+				onmousedown="startDrawing(event)"
+				onmousemove="drawLine(event)"
+				onmouseup="stopDrawing(event)"
+			>
+			</canvas>
+			<p id="coordinates" class="mt-4 text-lg font-semibold"></p>
+			<button
+				onclick="clearCanvas()"
+				class="bg-red-500 text-white py-2 px-4 mt-4 rounded"
+			>
+				Clear Canvas
+			</button>
+		</article>
+		<script>
+			var canvas = document.getElementById("myCanvas");
+			var ctx = canvas.getContext("2d");
+			var isDrawing = false;
+
+			const startDrawing = (event) => {
+				isDrawing = true;
+				var x = event.clientX - canvas.offsetLeft;
+				var y = event.clientY - canvas.offsetTop;
+				ctx.strokeStyle = "blue";
+				ctx.beginPath();
+				ctx.moveTo(x, y);
+			};
+
+			const drawLine = (event) => {
+				if (isDrawing) {
+					var x = event.clientX - canvas.offsetLeft;
+					var y = event.clientY - canvas.offsetTop;
+					ctx.lineTo(x, y);
+					ctx.stroke();
+					document.getElementById(
+						"coordinates",
+					).innerText = `Coordinates: (${x}, ${y})`;
+				}
+			};
+
+			const stopDrawing = (event) => {
+				isDrawing = false;
+			};
+
+			const clearCanvas = () => {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				document.getElementById("coordinates").innerText = "";
+			};
+		</script>
+	</body>
+</html>
