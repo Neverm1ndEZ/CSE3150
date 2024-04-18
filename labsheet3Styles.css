@@ -13,13 +13,20 @@ body {
 	height: 200px;
 	background-color: red; /* For browsers that do not support gradients */
 	background-image: linear-gradient(blue, yellow);
-	background-image: conic-gradient(red, yellow, orange);
+	background-image: conic-gradient(#131313, white);
 }
 
 #grad2 {
 	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: red; /* For browsers that do not support gradients */
 	background-image: linear-gradient(black, red);
+}
+
+#grad2 h2 {
+	color: white;
 }
 
 /* Header styles */
